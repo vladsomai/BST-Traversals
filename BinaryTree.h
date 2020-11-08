@@ -14,8 +14,6 @@ private:
 	
 
 public:
-
-
 	//-------------------FUNCTIILE ARBORELUI---------------------------
 	void insertNode();
 	void searchNode(shared_ptr<node>);
@@ -60,7 +58,6 @@ public:
 void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 {
 
-
 	if (this->root == nullptr)
 	{
 
@@ -68,10 +65,9 @@ void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 		return;
 
 	}
-
-
 	else
 	{
+
 		//afisam radacina prima data
 		if (this->root == actual)
 		{
@@ -86,7 +82,6 @@ void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 			this->printBinaryTree_preordine(actual->getLeft());
 
 		}
-
 
 		//afisam nodurile ca si la inordine dar fara radacina
 		if (actual != this->root)
@@ -104,7 +99,6 @@ void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 	
 	}
 	
-
 }
 
 
@@ -115,7 +109,6 @@ void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 void binaryTree::printBinaryTree_inordine(shared_ptr<node> actual)
 {
 	
-
 	if (this->root == nullptr)
 	{
 
@@ -179,7 +172,6 @@ void binaryTree::printBinaryTree_inordine(shared_ptr<node> actual)
 void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 {
 
-
 	if (this->root == nullptr)
 	{
 
@@ -187,11 +179,8 @@ void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 		return;
 
 	}
-
-
 	else
 	{
-
 
 		if (actual->getLeft() != nullptr)
 		{
@@ -200,11 +189,12 @@ void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 
 		}
 
-
 		//afisam nodurile ca si la inordine dar fara radacina
 		if (actual != this->root)
 		{
+
 			cout << actual->getData() << "\t";
+
 		}
 
 
@@ -219,12 +209,9 @@ void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 
 	      cout << "R: " << this->root->getData() << "\t";
 
-		
-
 	}
 
 }
-
 
 
 
