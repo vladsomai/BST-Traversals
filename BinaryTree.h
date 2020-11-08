@@ -20,7 +20,7 @@ public:
 	void insertNode();
 	void searchNode(shared_ptr<node>);
 	void SupriMin();
-	void printBinaryTree_preordine(shared_ptr<node> actual);//functia de afisare a nodului prin metoda inordine - vom afisa toate nodurile crescator(proiectia nodurilor), am creat aceasta functie pentru verificare chiar daca nu este in cerintele problemei
+	void printBinaryTree_preordine(shared_ptr<node> actual);
 	void printBinaryTree_inordine(shared_ptr<node> actual);
 	void printBinaryTree_postordine(shared_ptr<node> actual);
 	
