@@ -65,6 +65,7 @@ void treeMenu(shared_ptr<binaryTree> binTree)
 		cout << "5.Afisare preordine.\n";
 		cout << "6.Afisare inordine.\n";
 		cout << "7.Afisare postordine.\n";
+		cout << "8.Afisare cuprindere/nivel.\n";
 
 		cout << "0.Exit.\n";
 
@@ -153,7 +154,7 @@ void treeMenu(shared_ptr<binaryTree> binTree)
 			break;
 
 		case 8:
-			cout << "\nAfisare postordine\nArborele contine: \n";
+			cout << "\nAfisare cuprindere\nArborele contine: \n";
 			binTree->printBinaryTree_cuprindere(binTree->getRoot());
 			cout << endl;
 			break;

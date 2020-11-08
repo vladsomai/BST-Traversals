@@ -1,12 +1,11 @@
 #pragma once
 #include "NodeLibrary.h"
-
+#include<queue>
 
 //cream structura de date al arborelui
 class binaryTree
 {
 private:
-
 	  shared_ptr<node> root;
 	  shared_ptr<node> actual;
 	  bool dataIsFound;
@@ -53,11 +52,86 @@ public:
 
 
 
+
+//pentru a afisa nodurile pe nivel vom folosii obiectul queue din std namespace, vom adauga intotdeauna radacina si nullptr in queue, aceasta este baza functiei si primul nivel al arborelui.
+//am abordat problema prin creearea unui loop infinit care ne aduce capul din queue in nodul actual,dupa care sterge capul din queue, iar atata timp cat nodul actual nu este null il vom afisa, dupa care vom adauga fii nenuli in queue(coada).
+//terminam de afisat atunci cand queue este gol - inseamna ca nici un fiu nu a mai fost adaugat, deci am ajuns la capatul arborelui.
 void binaryTree::printBinaryTree_cuprindere(shared_ptr<node> actual)
 {
 
+	int level{1};
+
+	if (this->root == nullptr)
+	{
+		cout << "Arbore gol\n" << endl;
+		return;
+	}
+	else
+	{
+		    queue< shared_ptr<node> > que;
+			
+			//este clar ca daca arborele nu este gol vom aveam primul nod din queue ca si root urmat de delimitatorul nullptr.
+			que.push(this->root);//punem in queue nodul root
+			que.push(nullptr);//punem dupa nodul root, nullptr pentru a delimita nivelele arborelui
+			cout << "Nivelul " << level << ": ";
+			level++;
 
 
+			//vom crea un loop inifinit care sterge nodul din fata(front) si verifica coada(daca nodul front este null inseamna ca am ajuns la sfarsitul nivelului), dupa care adauga in coada elementele din stanga si dreapta daca exista.
+			while (true)
+			{
+				this->actual = que.front();//punem nodul din capul queue(primul nod) in actual
+				que.pop();//stergem nodul cap din queue
+
+				//afisam actual si verificam stanga si dreapta pentru a le adauga pe queue
+				if (this->actual != nullptr)
+				{
+					//afisam nodul actual
+					cout << this->actual->getData() << ' ';
+
+					//verificam nodurile din stanga si dreapta
+					if (this->actual->getLeft() != nullptr)
+					{
+
+						que.push(this->actual->getLeft());
+
+					}
+
+					if (this->actual->getRight() != nullptr)
+					{
+
+						que.push(this->actual->getRight());
+
+					}
+
+				}
+				else
+				{
+
+					//verificam daca obiectul queue este null - iesim din loop in acest caz deoarece am afisat toate nodurile din queue(coada)
+					if (que.empty())
+					{
+
+						break;
+
+					}
+
+					//trecem newline pentru ca avem delimitatorul null (actual == null sau que.front() == null) 
+					cout << endl;
+					cout << "Nivelul "<<level<<": ";
+
+					//punem nullptr la coada pentru a delimita nivelul.
+					que.push(nullptr);
+					
+					//incrementam nivelul
+					level++;
+
+				}
+
+			}
+
+	}
+	
 }
 
 void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
