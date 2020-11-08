@@ -26,29 +26,48 @@ Operatorul "Creeaza" l-am implementat in functia de insertie, pentru a fi mai us
 */
 
 
+void treeMenu(shared_ptr<binaryTree>);
+
 
 
 int main()
 {
-	unique_ptr <binaryTree> binaryTree1 = make_unique<binaryTree>();
+	shared_ptr <binaryTree> binaryTree1 = make_unique<binaryTree>();
+
+	treeMenu(binaryTree1);
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+void treeMenu(shared_ptr<binaryTree> binTree)
+{
 	int searched = 0;
 	int toDelete = 0;
 	int optiune = 0;
 
 	do
-	{	
+	{
 		system("cls");
-		cout <<"\n\n1.Inserare.\n";
-		cout <<"2.Cauta.\n";
-		cout <<"3.SuprimaMin\n";
-		cout <<"4.Suprima.\n";
+		cout << "\n\n1.Inserare.\n";
+		cout << "2.Cauta.\n";
+		cout << "3.SuprimaMin\n";
+		cout << "4.Suprima.\n";
 
 		cout << "5.Afisare preordine.\n";
 		cout << "6.Afisare inordine.\n";
 		cout << "7.Afisare postordine.\n";
 
 		cout << "0.Exit.\n";
-		
+
 
 		cin >> optiune;
 
@@ -58,47 +77,47 @@ int main()
 		case 0:
 			printf("Exiting...\n\n\n");
 			break;
-			
+
 
 		case 1:
-			binaryTree1->insertNode();
+			binTree->insertNode();
 			break;
 
 
 		case 2:
 			//dam un numar pentru cautare
 			cout << "Introduceti numarul cautat: "; cin >> searched;
-			binaryTree1->setSearchedNumber(searched);
+			binTree->setSearchedNumber(searched);
 
-			binaryTree1->searchNode(binaryTree1->getRoot());
+			binTree->searchNode(binTree->getRoot());
 
 			//daca variabila "DataIsFound" a fost setata pe true atunci am gasit numarul
-			if (binaryTree1->getDataIsFound())
+			if (binTree->getDataIsFound())
 			{
-				cout << "Succes! Numarul "<<binaryTree1->getSearchedNumber()<<" a fost gasit in arbore\n";
+				cout << "Succes! Numarul " << binTree->getSearchedNumber() << " a fost gasit in arbore\n";
 			}
 			else
 			{
-				cout << "Eroare! Numarul " << binaryTree1->getSearchedNumber() << " nu a fost gasit in arbore\n";
+				cout << "Eroare! Numarul " << binTree->getSearchedNumber() << " nu a fost gasit in arbore\n";
 			}
 
 			//dupa ce am apelat functia de cautare, resetam variabila.
-			binaryTree1->resetDataIsFound();
+			binTree->resetDataIsFound();
 			break;
 
 		case 3:
-			binaryTree1->SupriMin();
+			binTree->SupriMin();
 			break;
 
 		case 4:
-			
+
 			cout << "Introduceti numarul cautat: "; cin >> toDelete;
-		    binaryTree1->setSearchedNumber(toDelete);
-		    binaryTree1->deleteNode(binaryTree1->getRoot());
+			binTree->setSearchedNumber(toDelete);
+			binTree->deleteNode(binTree->getRoot());
 
 
 			//daca variabila "DataIsFound" a fost setata pe true atunci am gasit numarul
-			if (binaryTree1->getDataIsFound())
+			if (binTree->getDataIsFound())
 			{
 				cout << "Succes! Numarul " << toDelete << " a fost sters din arbore\n";
 			}
@@ -108,7 +127,7 @@ int main()
 			}
 
 			//dupa ce am apelat functia de stergere, resetam variabila.
-			binaryTree1->resetDataIsFound();
+			binTree->resetDataIsFound();
 
 			break;
 
@@ -116,20 +135,26 @@ int main()
 
 		case 5:
 			cout << "\nAfisare preordine\nArborele contine: \n";
-			binaryTree1->printBinaryTree_preordine(binaryTree1->getRoot());
+			binTree->printBinaryTree_preordine(binTree->getRoot());
 			cout << endl;
 			break;
 
 
 		case 6:
 			cout << "\nAfisare inordine\nArborele contine: \n";
-			binaryTree1->printBinaryTree_inordine(binaryTree1->getRoot());
+			binTree->printBinaryTree_inordine(binTree->getRoot());
 			cout << endl;
 			break;
 
 		case 7:
 			cout << "\nAfisare postordine\nArborele contine: \n";
-			binaryTree1->printBinaryTree_postordine(binaryTree1->getRoot());
+			binTree->printBinaryTree_postordine(binTree->getRoot());
+			cout << endl;
+			break;
+
+		case 8:
+			cout << "\nAfisare postordine\nArborele contine: \n";
+			binTree->printBinaryTree_cuprindere(binTree->getRoot());
 			cout << endl;
 			break;
 
@@ -142,5 +167,4 @@ int main()
 	} while (optiune != 0);
 
 
-	return 0;
 }

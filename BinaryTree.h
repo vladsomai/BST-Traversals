@@ -21,7 +21,7 @@ public:
 	void printBinaryTree_preordine(shared_ptr<node> actual);
 	void printBinaryTree_inordine(shared_ptr<node> actual);
 	void printBinaryTree_postordine(shared_ptr<node> actual);
-	
+	void printBinaryTree_cuprindere(shared_ptr<node> actual);
 	shared_ptr<node> deleteNode(shared_ptr<node> actual);
 	//-----------------------------------------------------------------
 
@@ -53,7 +53,12 @@ public:
 
 
 
+void binaryTree::printBinaryTree_cuprindere(shared_ptr<node> actual)
+{
 
+
+
+}
 
 void binaryTree::printBinaryTree_preordine(shared_ptr<node> actual)
 {
