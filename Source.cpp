@@ -15,9 +15,7 @@ Utilizând implementarea de la aplicaţia 8.1 se cere în continuare:
  Să se parcurga arborele şi să se afişeze succesiunea nodurilor, în fiecare dintre
 modalităţile de căutare mai sus precizate.
 
-Am folosit codul scris la aplicatia 8.1 la care am adaugat functiile de afisare in varianta pre / in / post ordine
-
-
+Am folosit codul scris la aplicatia 8.1 la care am adaugat functiile de afisare in varianta pre / in / post ordine si cuprindere
 
 Am realizat programul in C++ pentru o mai buna structurare a tipurilor de date si usurinta de a lucra cu fiecare obiect.
 
