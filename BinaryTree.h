@@ -184,10 +184,12 @@ void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 
 		if (actual->getLeft() != nullptr)
 		{
-
-			this->printBinaryTree_preordine(actual->getLeft());
+			//apelam functia de afisare in ordine
+			this->printBinaryTree_inordine(actual->getLeft());
 
 		}
+
+
 
 		//afisam nodurile ca si la inordine dar fara radacina
 		if (actual != this->root)
@@ -201,13 +203,12 @@ void binaryTree::printBinaryTree_postordine(shared_ptr<node> actual)
 		if (actual->getRight() != nullptr)
 		{
 
-			this->printBinaryTree_preordine(actual->getRight());
+			this->printBinaryTree_inordine(actual->getRight());
 
 		}
+
 		//afisam radacina ultima data
-
-
-	      cout << "R: " << this->root->getData() << "\t";
+	    cout << "R: " << this->root->getData() << "\t";
 
 	}
 
