@@ -23,31 +23,23 @@ Operatorul "Creeaza" l-am implementat in functia de insertie, pentru a fi mai us
 
 */
 
-
-void treeMenu(shared_ptr<binaryTree>);
-
+shared_ptr<binaryTree> CreateBinTree();
+void treeMenu();
 
 
 int main()
 {
-	shared_ptr <binaryTree> binaryTree1 = make_unique<binaryTree>();
 
-	treeMenu(binaryTree1);
+	treeMenu();
 
 	return 0;
 }
 
 
-
-
-
-
-
-
-
-
-void treeMenu(shared_ptr<binaryTree> binTree)
+void treeMenu()
 {
+
+	shared_ptr <binaryTree> binTree = CreateBinTree();
 	int searched = 0;
 	int toDelete = 0;
 	int optiune = 0;
@@ -165,5 +157,21 @@ void treeMenu(shared_ptr<binaryTree> binTree)
 		system("pause");
 	} while (optiune != 0);
 
+
+}
+
+shared_ptr<binaryTree> CreateBinTree()
+{
+	unique_ptr <binaryTree> binaryTree1 = make_unique<binaryTree>();
+
+	binaryTree1->insertNodeParam(2);
+	binaryTree1->insertNodeParam(5);
+	binaryTree1->insertNodeParam(6);
+	binaryTree1->insertNodeParam(7);
+	binaryTree1->insertNodeParam(9);
+	binaryTree1->insertNodeParam(10);
+	binaryTree1->insertNodeParam(13);
+
+	return binaryTree1;
 
 }
