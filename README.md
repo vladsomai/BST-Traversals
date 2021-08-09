@@ -1,4 +1,4 @@
-# BST-Traversals
+# Binary Search Tree - Traversals
 Implementation of binary search tree using C++. 
 -smart pointers are used.
 -deleting of a node is done based on 3 cases: The node that must be deleted:
